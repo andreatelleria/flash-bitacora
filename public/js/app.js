@@ -43,11 +43,13 @@ $(document).ready(function() {
   var output = $('#map');
 
 
-  // Creamos una fucnión que creará un nuevo post
+  // Creamos una función que creará un nuevo post
   function addPost () {
+     if ($modalChatTitle.val().trim().length !== 0) {
     localStorage.chatTitle = $modalChatTitle.val();
     localStorage.chatMessage = $modalChatMessage.val();
     $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ localStorage.chatTitle +'</h4><p>'+ localStorage.chatMessage +'</p></div></div>');
+    }
   }
 
   // Creamos la función que publicará imágenes responsive
@@ -59,8 +61,7 @@ $(document).ready(function() {
       var reader = new FileReader();
       reader.onload = function(event) {
         // guardando el localStorage
-        url = event.target.result;
-        localStorage.url = url;
+        localStorage.url = event.target.result;
       };
       reader.readAsDataURL(file);
     };
