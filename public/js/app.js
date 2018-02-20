@@ -45,7 +45,9 @@ $(document).ready(function() {
 
   // Creamos una fucnión que creará un nuevo post
   function addPost () {
-    $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ $modalChatTitle.val() +'</h4><p>'+ $modalChatMessage.val() +'</p></div></div>');
+    localStorage.chatTitle = $modalChatTitle.val();
+    localStorage.chatMessage = $modalChatMessage.val();
+    $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ localStorage.chatTitle +'</h4><p>'+ localStorage.chatMessage +'</p></div></div>');
   }
 
   // Creamos la función que publicará imágenes responsive
@@ -58,38 +60,23 @@ $(document).ready(function() {
       reader.onload = function(event) {
         // guardando el localStorage
         url = event.target.result;
+        localStorage.url = url;
       };
       reader.readAsDataURL(file);
     };
 
     function postImage() {
-      $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ $modalImageTitle.val() +'</h4><img class="thumb responsive-img" src="'+ url +'"</></div></div>');
+      localStorage.imageTitle = $modalImageTitle.val();
+      $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ localStorage.imageTitle +'</h4><img class="thumb responsive-img" src="'+ localStorage.url +'"</></div></div>');
     }
 
     $mediaFile.change(function() {
     		addMedia(this.files[0]);
     	})
   function postVideo() {
-      $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ $modalImageTitle.val() +'</h4><video class="video-width" src="' + url +'"controls loop>'+'</video></div></div>');
+    localStorage.videoTitle = $modalImageTitle.val();
+      $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ localStorage.videoTitle +'</h4><video class="video-width" src="' + localStorage.url +'"controls loop>'+'</video></div></div>');
   }
-/*
-  function findMe() {
-    if(navigator.geolocation) {
-      console.log('Tu navegador si soporta esta api');
-    } else {
-      alert('Tu navegador no soporta Geolocalización');
-    }
-
-    function localization (position) {
-      var latitude = position.coords.latitude;
-      console.log(latitude)
-      var longitude = position.coords.longitude;
-    }
-    function error() {
-      alert('No se pudo obtener tu ubicación');
-    }
-    navigator.geolocation.getCurrentPosition(localization,error);
-  }*/
 
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -135,11 +122,12 @@ var success = function getLocationSuccess(position) {
 var error = function() {
   alert('Tenemos problemas para encontrar tu ubicación.');
 };
-  function posEvent() {
-    $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ $modalEventTitle.val() +'</h4><p>'+ $modalEventDate.val() +'</p><div id="map" class="size-map"></div></div></div>');
-    search();
-
-  }
+function posEvent() {
+  localStorage.eventTitle = $modalEventTitle.val();
+  localStorage.eventDate = $modalEventDate.val();
+  $containerBox.prepend('<div class="card"><div class="card-content"><h4>'+ localStorage.eventTitle +'</h4><p>'+ localStorage.eventDate +'</p><div id="map" class="size-map"></div></div></div>');
+  search();
+}
   $chatSend.on('click', addPost);
   $imageSend.on('click', postImage);
   $mediaeSend.on('click', postVideo);
