@@ -1,0 +1,24 @@
+{
+  "name": "flash-bitacora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreatelleria/flash-bitacora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreatelleria/flash-bitacora/issues"
+  },
+  "homepage": "https://github.com/andreatelleria/flash-bitacora#readme",
+  "dependencies": {
+    "eslintrc": "^1.0.4",
+    "express": "^4.16.2"
+  }
+}

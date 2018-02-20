@@ -26,8 +26,15 @@
   </header>
 
   <!-- Contenedor de publicaciones -->
-  <section class="container" id="main">
-  </section>
+  <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div id="box">
+
+          </div>
+        </div>
+      </div>
+    </div>
 
   <!-- FAB Button -->
   <div class="fixed-action-btn horizontal click-to-toggle">
@@ -71,7 +78,7 @@
             <textarea id="modal-chat-message" class="materialize-textarea"></textarea>
             <label for="message">Mensaje</label>
           </div>
-          <button class="btn waves-effect waves-light right cyan accent-4" type="submit" name="action" data-publication="text">Publicar
+          <button id="chat-send" class="btn waves-effect waves-light right cyan accent-4 modal-close" type="submit" name="action" data-publication="text">Publicar
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -97,7 +104,7 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-          <button class="btn waves-effect waves-light right blue accent-2" type="submit" name="action" data-publication="image">Publicar
+          <button id="image-send" class="btn waves-effect waves-light right blue accent-2 modal-close" type="submit" name="action" data-publication="image">Publicar
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -106,18 +113,18 @@
   </div>
 
   <!-- Tercer modal: publicar evento en calendario -->
-  <div id="modalEvent" class="modal">
+  <div id="modalEvent" class="modal modal-height">
     <div class="modal-content row">
       <div class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" class="validate" data-length="10" id="modal-event-title" />
-            <label for="first_name">Título</label>
+            <input type="text" class="validate" data-length="10" id="modal-event-title"/>
+            <label for="first_name">Título:</label>
           </div>
           <div class="input-field col s12">
             <input type="date" class="datepicker" id="modal-event-date" placeholder="Fecha del evento">
           </div>
-          <button class="btn waves-effect waves-light right green accent-2" type="submit" name="action" data-publication="event">Publicar
+          <button id="event-send" class="btn waves-effect waves-light right green accent-2 modal-close" type="submit" name="action" data-publication="event">Publicar
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -143,19 +150,21 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-          <button class="btn waves-effect waves-light right amber accent-2" type="submit" name="action" data-publication="media">Publicar
+          <button id="media-send" class="btn waves-effect waves-light right amber accent-2 modal-close" type="submit" name="action" data-publication="media">Publicar
             <i class="material-icons right">send</i>
           </button>
         </div>
       </div>
     </div>
-  </div>z
+  </div>
 
 
   <!-- Librería Jquery enlazada -->
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <!-- Archivo Jquery de Materialize enlazado -->
   <script src="vendors/materialize/js/materialize.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzcePyZ7q8_v3vaIWHvGqBafzBaqset8o"
+    async defer></script>
   <!-- Archivo JS enlazado-->
   <script src="js/app.js"></script>
 </body>
