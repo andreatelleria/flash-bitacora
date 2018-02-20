@@ -1,0 +1,18 @@
+body {
+  background: #d9a7c7;
+  background: linear-gradient(to right, #fffcdc, #d9a7c7);
+}
+
+h1 {
+  font-family: 'Almendra SC', serif;
+  word-spacing: 10px;
+}
+
+img,
+video {
+  width: 100%;
+}
+
+.map-container {
+  height: 450px;
+}
