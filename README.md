@@ -9,4 +9,3 @@ Creamos una bitácora con la que podrás agregar mensajes, imágenes, audio, vid
 ### File API
 + Geolocation API
 + Audio y Vídeo
-+ Date input
